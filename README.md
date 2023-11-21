@@ -1,4 +1,4 @@
-# Nifi Pseudonymisation - Hands-on Lab
+Nifi Pseudonymisation - Hands-on Lab
 
 The purpose of the lab is to cover various pseudonymisation technics available in CDP private Cloud and Nifi.
 We'll focus on reversible techniques, by opposition to anonimyzation that is not reversible.*
@@ -10,9 +10,11 @@ Summary:
 All steps will be run by attendees on their own edge to ai instance, a single node secured cluster running CDP
 Private Cloud base with Nifi deployed.
 
-Access your edge to ai instance
+# 1. Access your edge to ai instance
 You can ssh to it if needed using the hostname indicated in the webserver.
 
+
+# 2. Pseudonymisation in Nifi
 Access Nifi UI and the canvas
 To anonymize data in NiFi, you can make use of various processors and techniques. Here are some common steps to follow:
 
@@ -41,7 +43,7 @@ The Nifi template is available under "assets" in this repository if needed.
 
 
 
-*Pseudonymisation is the process of replacing identifying information with random codes, 
+_*Pseudonymisation is the process of replacing identifying information with random codes, 
 which can be linked back to the original person with extra information, 
 whereas anonymisation is the irreversible process of rendering personal data non-personal, 
-and not subject to the GDPR
+and not subject to the GDPR_
