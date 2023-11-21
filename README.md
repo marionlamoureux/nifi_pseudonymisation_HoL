@@ -18,6 +18,7 @@ You can ssh to it if needed using the hostname indicated in the webserver.
 Access Nifi UI and the canvas
 To anonymize data in NiFi, you can make use of various processors and techniques. Here are some common steps to follow:
 
+Anonimisation:
 Summary
 1. Identify and select the fields that need to be anonymized.
 2. Use processors like `UpdateAttribute`, `ReplaceText`, or `AttributesToJSON` to manipulate the data.
@@ -28,7 +29,33 @@ Summary
 The Nifi template is available under "assets" in this repository if needed.
 
 
+Pseudonymisation
+To pseudonymize data in NiFi, you can make use of the built-in Record processors like ConvertRecord and UpdateRecord. These processors allow you 
+to manipulate the data within a record-oriented format and apply transformations to the data fields.
 
+Here are the steps to pseudonymize data using NiFi:
+
+1. Use a processor like ExtractText or SplitText to split the incoming data into individual fields, if applicable.
+
+2. Configure the ConvertRecord processor to specify the desired Record Reader and Record Writer. These can be set to appropriate JSON, Avro, or CSV reader/writer controller services.
+
+3. Set up a schema for the data to define the fields to be pseudonymized. You can create a JSON schema or use Avro schema depending on the chosen format.
+
+4. Configure the ConvertRecord processor to apply conversions to the fields for pseudonymization. You can utilize the built-in Record processors like UpdateRecord or write your custom scripts in a scripting language like Groovy, Jython, or JavaScript.
+
+5. Apply the pseudonymization logic to the desired fields in the UpdateRecord processor or any custom scripting processor. These transformations could include functions to hash, encrypt, or replace the original values with pseudonyms.
+
+6. Configure the ConvertRecord processor to specify the desired Record Writer to write the pseudonymized records.
+
+7. Connect the ConvertRecord processor to the downstream processors or destination systems to further process or store the pseudonymized data.
+
+It's important to note that while NiFi provides the tools to pseudonymize data, 
+the actual pseudonymization algorithms or techniques need to be implemented within the custom scripting or transformation logic used in the processors.
+
+If you have additional requirements or complex pseudonymization techniques, 
+you might need to consider implementing a custom processor or leveraging external services for more advanced data anonymization.
+
+Let me know if you require further assistance or if Cloudera has trained me on this specific use case.
 
 
 
