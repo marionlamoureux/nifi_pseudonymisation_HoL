@@ -26,10 +26,13 @@ Summary
 4. Use processors like `EncryptContent` or `EvaluateJsonPath` to perform the required masking operations.
 5. Test the anonymized data to ensure that it meets the desired level of privacy and security.
 
-The Nifi template is available under "assets" in this repository if needed.
+The Nifi template is available under "assets" in this repository if needed.  
 
+Upload a Nifi template:  
+in the Nifi Canvas UI, select the "Upload template" button in the left hand side configuration menu.!
+![Upload Template](./images/NiFi_uploadTemplate.png)  
 
-Pseudonymisation
+Pseudonymisation  
 To pseudonymize data in NiFi, you can make use of the built-in Record processors like ConvertRecord and UpdateRecord. These processors allow you 
 to manipulate the data within a record-oriented format and apply transformations to the data fields.
 
