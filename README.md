@@ -1,1 +1,1 @@
-# nifi_pseudonymisation_HoL
+# Nifi Pseudonymisation - Hands-on Lab
