@@ -1,4 +1,4 @@
-Nifi Pseudonymisation - Hands-on Lab
+# Nifi Pseudonymisation - Hands-on Lab
 
 The purpose of the lab is to cover various pseudonymisation technics available in CDP private Cloud and Nifi.
 We'll focus on reversible techniques, by opposition to anonimyzation that is not reversible.*
@@ -8,17 +8,19 @@ Summary:
 - Using Ranger for profiling and masking
 
 All steps will be run by attendees on their own edge to ai instance, a single node secured cluster running CDP
-Private Cloud base with Nifi deployed.
+Private Cloud base with Nifi deployed. Because it's a very small instance, the purpose is to test features,
+not to test performance of workloads at scale.
 
-# 1. Access your edge to ai instance
+## 1. Access your edge to ai instance
 You can ssh to it if needed using the hostname indicated in the webserver.
 
 
-# 2. Pseudonymisation in Nifi
+## 2. Pseudonymisation in Nifi
 Access Nifi UI and the canvas
 To anonymize data in NiFi, you can make use of various processors and techniques. Here are some common steps to follow:
 
-Anonimisation:
+
+
 Summary
 1. Identify and select the fields that need to be anonymized.
 2. Use processors like `UpdateAttribute`, `ReplaceText`, or `AttributesToJSON` to manipulate the data.
@@ -61,14 +63,24 @@ you might need to consider implementing a custom processor or leveraging externa
 Let me know if you require further assistance or if Cloudera has trained me on this specific use case.
 
 
+## 3. Data masking in ranger
+
+Ranger enables you to create tag-based services and add access policies to those services.
+
+*Tag-Based Policies Overview*
+An important feature of Ranger tag-based authorization is the separation of resource-classification from access-authorization. 
+For example, resources (HDFS file/directory, Hive database/table/column etc.) containing sensitive data such as social security numbers,
+credit card numbers, or sensitive health care data can be tagged with any classification tag of your choice (usually "PII" or "confidential" or "sensitive") in Atlas, either as the resource enters the Hadoop ecosystem or at a later time. 
+Once a resource is tagged, the authorization for the tag would be automatically enforced,
+thus eliminating the need to create or update policies for the resource.
+
+Using tag-based policies also enables you to control access to resources across multiple CDP components without creating separate services and policies in each component.
 
 
-
-
-
-
-
-
+Summary:
+- Access Atlas and assign a "PII" categorization to Hive column "email" from the Hive table "employees"
+- Access Ranger and create a Masking policy to redact any asset tagged PII
+- Query the table from Nifi and have a look at the result
 
 
 
