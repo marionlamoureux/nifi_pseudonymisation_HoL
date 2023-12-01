@@ -273,7 +273,11 @@ _*For this lab, Redact has been selected as the masking option_
 
 1. Go back to Hue
 
-2. Run the query 
+2. Run the query by going to the editor icon and selecting Hive
+
+
+![36_hue_editor](images/36_hue_editor.png)
+
 
 ```
 SELECT * FROM HR.employees;
