@@ -19,8 +19,8 @@ not to test performance of workloads at scale.
 ## 1. Access your edge to ai instance
 To acess the instance, each user will need to register using the given Web Server and registration code. 
 ```
-  Web Server:  http://34.197.112.233 
-  Registration code: clever_mccarthy
+  **Web Server:**  http://34.197.112.233 
+  *Registration code:* clever_mccarthy
 ```
 ![1_registration](images/1_registration.png)
 
