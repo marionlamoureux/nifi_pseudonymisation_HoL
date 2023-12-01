@@ -212,12 +212,28 @@ Steps to follow -->
 
 To access Atlas go to the EDGE2AI Home url: http://34.197.112.233/  and select Atlas
 
-Login as Admin:
+1. Login as Admin:
 
 ![21_atlas_login](images/21_atlas_login.png)
 
+2. In the Search By Text textbox type employees to find the table that has been created
 
+![22_atlas_search](images/22_atlas_search.png)
 
+3. Click on the table and explore the different tabs, as you can see Atlas inferred the metadata. Go to the schema tab
+
+![23_atlas_table_schema](images/23_atlas_table_schema.png)
+
+4. As part of the exercise the assumption is that the `email` column needs to be masked. For that, we will create a classification. For that click on the Classification option on the left blue panel and click on add. Add PII in the name and click Create
+
+![24_create_classification](images/24_create_classification.png)
+
+5. Once the classification is created go back to the table, click on the + icon in the right side of the `email` row and select PII
+
+![25_add_classification](images/25_add_classification.png)
+
+The entity `email` has been classified as PII
+![26_column_class](images/26_column_class.png)
 
 ### 2. Access Ranger and create a Masking policy to redact any asset tagged PII
 ### 3. Query the table from Nifi and have a look at the result
