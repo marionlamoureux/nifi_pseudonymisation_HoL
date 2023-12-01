@@ -235,8 +235,45 @@ To access Atlas go to the EDGE2AI Home url: http://34.197.112.233/  and select A
 The entity `email` has been classified as PII
 ![26_column_class](images/26_column_class.png)
 
-### 2. Access Ranger and create a Masking policy to redact any asset tagged PII
+### 3.2 Access Ranger and create a Masking policy to redact any asset tagged PII
+
+
 ### 3. Query the table from Nifi and have a look at the result
+
+To access Ranger go to the EDGE2AI Home url: http://34.197.112.233/  and select Ranger
+
+1. Login as Admin:
+
+![27_ranger_login](images/27_ranger_login.png)
+
+2. Within the Ranger UI, click on the Tag tab
+
+![28_ranger_ui](images/28_ranger_ui.png)
+
+3. Click on cm_tag and then go to the Masking Tab
+
+![29_select_tag](images/29_select_tag.png)
+
+4. Click on add New Policy
+
+![30_masking](images/30_masking.png)
+
+5. Name the policy, select the PII Tag, select the component permissions, masking options and create new policy
+
+![31_pii](images/31_pii.png)
+
+![32_hive](images/32_hive.png)
+
+![33_masking_option](images/33_masking_option.png)
+
+![34_create_policy](images/34_create_policy.png)
+
+
+
+
+
+
+
 
 
 
