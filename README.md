@@ -238,8 +238,6 @@ The entity `email` has been classified as PII
 ### 3.2 Access Ranger and create a Masking policy to redact any asset tagged PII
 
 
-### 3. Query the table from Nifi and have a look at the result
-
 To access Ranger go to the EDGE2AI Home url: http://34.197.112.233/  and select Ranger
 
 1. Login as Admin:
@@ -267,6 +265,9 @@ To access Ranger go to the EDGE2AI Home url: http://34.197.112.233/  and select 
 ![33_masking_option](images/33_masking_option.png)
 
 ![34_create_policy](images/34_create_policy.png)
+
+
+### 3.3 Query the table from Nifi and have a look at the result
 
 
 
