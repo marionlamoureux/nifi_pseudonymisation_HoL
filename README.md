@@ -27,7 +27,7 @@ To acess the instance, each user will need to register using the given Web Serve
 
 Once this is completed, register the user and create a password
 
-![2_password](images/2_pasword.png)
+![2_password](images/2_password.png)
 
 You will be redirected to the main menu
 _*Note: Users must check with their internal security team if the range for the services has to be whitelisted_
