@@ -38,7 +38,7 @@ _*Note: Users must check with their internal security team if the range for the 
 
 There can be different users that have access to the CDP platform, however for the purposes of this lab we will be using one:
 
-1. **Admin**
+**Admin**
 
 ```
   User: admin
