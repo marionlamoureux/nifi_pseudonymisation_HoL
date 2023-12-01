@@ -62,25 +62,54 @@ There will be three different users that will be used through the lab
 
 
 ## 2. Data Ingestion and Transformation with NiFi
-Access Nifi UI and the canvas
+To access the NiFi UI go to the EDGE2AI Home url: http://34.197.112.233/  and select NiFi
+
+Login as admin:
+
+![4_nifi_login](images/4_nifi_login.png)
+
+
+You will be redirected to the NiFi Canvas -->
+
+![5_nifi_canvas](images/5_nifi_canvas.png)
+
+
+### 2.1 Ingesting Data using NiFi
+
+Pipelines in NiFi are referred as flows. 
+The first step of the Flow that is going to be created will be ingesting the data from a storage system in this case HDFS.
+
+For the purpose of this lab, there is a pre-step where users will download a sample dataset from this Repository:
+
+```
+  https://github.com/nhernandezdlm/CSO_HoL/tree/main/assets
+```
+The dataset will be uploaded into the local HDFS of each of the clusters using Hue.
+
+To access Hue go to the EDGE2AI Home url: http://34.197.112.233/  and select Hue
+
+Login as Admin:
+
+![6_hue](images/6_hue.png)
+
+You will be redirected to Hue -->
+
+![7_hue_init](images/7_hue_init.png)
+
+
+### 2.2 Anonymize data in NiFi
+
 To anonymize data in NiFi, you can make use of various processors and techniques. Here are some common steps to follow:
 
-
-
-Summary
 1. Identify and select the fields that need to be anonymized.
 2. Use processors like `UpdateAttribute`, `ReplaceText`, or `AttributesToJSON` to manipulate the data.
 3. Apply masking techniques such as randomization, substitution, or encryption to the selected fields.
 4. Use processors like `EncryptContent` or `EvaluateJsonPath` to perform the required masking operations.
 5. Test the anonymized data to ensure that it meets the desired level of privacy and security.
 
-The Nifi template is available under "assets" in this repository if needed.  
 
-Upload a Nifi template:  
-in the Nifi Canvas UI, select the "Upload template" button in the left hand side configuration menu.!
-![Upload Template](./images/NiFi_uploadTemplate.png)  
+### 2.3 Pseudonymize data in NiFi
 
-Pseudonymisation  
 To pseudonymize data in NiFi, you can make use of the built-in Record processors like ConvertRecord and UpdateRecord. These processors allow you 
 to manipulate the data within a record-oriented format and apply transformations to the data fields.
 
@@ -106,10 +135,17 @@ the actual pseudonymization algorithms or techniques need to be implemented with
 If you have additional requirements or complex pseudonymization techniques, 
 you might need to consider implementing a custom processor or leveraging external services for more advanced data anonymization.
 
-Let me know if you require further assistance or if Cloudera has trained me on this specific use case.
+### 2.4 How to share Flows in NiFi
+
+The Nifi template is available under "assets" in this repository if needed.  
+
+Upload a Nifi template:  
+in the Nifi Canvas UI, select the "Upload template" button in the left hand side configuration menu.!
+![Upload Template](./images/NiFi_uploadTemplate.png)  
 
 
-## 3. Data masking in ranger
+
+## 3. Data Masking in Ranger
 
 Ranger enables you to create tag-based services and add access policies to those services.
 
