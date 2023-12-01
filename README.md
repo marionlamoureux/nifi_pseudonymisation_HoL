@@ -1,10 +1,17 @@
 # Nifi Pseudonymisation - Hands-on Lab
 
 The purpose of the lab is to cover various pseudonymisation technics available in CDP private Cloud and Nifi.
-We'll focus on reversible techniques, by opposition to anonimyzation that is not reversible.*
+Definitions:  
+_*Pseudonymisation is the process of replacing identifying information with random codes, 
+which can be linked back to the original person with extra information, 
+whereas anonymisation is the irreversible process of rendering personal data non-personal, 
+and not subject to the GDPR_
 
 Summary:
-- Use Nifi processor
+- Build a Nifi flow for identifying sensistive information
+- Branch the flow:  
+    - Redacted information are written into Hive table "HR_Redacted"  
+    - Encrypted information are written into Hive table "HR_encrypted" including lookup table for 
 - Using Ranger for profiling and masking
 
 All steps will be run by attendees on their own edge to ai instance, a single node secured cluster running CDP
