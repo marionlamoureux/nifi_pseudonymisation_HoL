@@ -143,6 +143,7 @@ and click on Apply
 
 12. Click on the + sign on the top right and add the information for the following parameters: 
 
+![38_add_param](images/38_add_param.png)
 
 ```
 Name --> Hadoop Configuration Resources
@@ -157,15 +158,14 @@ Value --> <admin-password>
 ```
 _* For the password select Sensitive Value YES_
 
+
+![39_add_info_param](images/39_add_info_param.png)
+
 ```
 Name --> Kerberos Principal
 
 Value --> <admin>
 ```
-
-![38_add_param](images/38_add_param.png)
-
-![39_add_info_param](images/39_add_info_param.png)
 
 Click Apply
 
@@ -192,6 +192,12 @@ _*For the enviroment variables add a # + { and then press ctrl + space --> this 
 ![44_configure_fetch_hdfs](images/44_configure_fetch_hdfs.png)
 
 ![45_config_relationship_fetch](images/45_config_relationship_fetch.png)
+
+16. Click on the dark blue icon with an arror inside of the processor and drag it to the other processor. Click on add
+
+![46_connect_arrow](images/46_connect_arrow.png)
+
+![47_add_relationship](images/47_add_relationship.png)
 
 
 ### 2.2 Anonymize data in NiFi
