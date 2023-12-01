@@ -5,7 +5,7 @@ The primary goal of this repo is to cover the following-->
     - Ingest data from a local repository into HDFS
     - Pre-process the files while covering different pseudonymization and anonimyzation techniques* 
     
-      *_We'll have a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)._
+      *_There will be a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)._
 
     - Create separate tables for raw data and processed data
 2. Create policies for different users in Ranger to provide the correct permissions for each of the data resources that are available from the previous step by giving access to users, profiling and masking data
@@ -16,7 +16,7 @@ All steps will be run by attendees on their own edge to ai instance, a single no
 Private Cloud base with Nifi deployed. Because it's a very small instance, the purpose is to test features,
 not to test performance of workloads at scale.
 
-## 1. Access your edge to ai instance
+## 1. Access the EDGE2AI instance
 To acess the instance, each user will need to register using the given Web Server and registration code. 
 ```
   Web Server:  http://34.197.112.233 
@@ -33,6 +33,29 @@ You will be redirected to the main menu
 _*Note: Users must check with their internal security team if the range for the services has to be whitelisted_
 
 ![3_main_menu](images/3_main_menu.png)
+
+There will be three different users that will be used through the lab
+
+1. **Admin**
+
+```
+  User: admin
+  Password: Supersecret1
+```
+
+2. **Analyst**
+
+```
+  User: analyst_user
+  Password: Supersecret1
+```
+
+3. **Auditor**
+
+```
+  User: auditor_user
+  Password: Supersecret1
+```
 
 
 ## 2. Pseudonymisation in Nifi
