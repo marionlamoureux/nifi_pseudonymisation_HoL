@@ -19,12 +19,20 @@ not to test performance of workloads at scale.
 ## 1. Access your edge to ai instance
 To acess the instance, each user will need to register using the given Web Server and registration code. 
 ```
-  **Web Server:**  http://34.197.112.233 
-  *Registration code:* clever_mccarthy
+  Web Server:  http://34.197.112.233 
+  Registration code:*clever_mccarthy
 ```
+
 ![1_registration](images/1_registration.png)
 
+Once this is completed, register the user and create a password
 
+![2_password](images/2_pasword.png)
+
+You will be redirected to the main menu
+_*Note: Users must check with their internal security team if the range for the services has to be whitelisted_
+
+![3_main_menu](images/3_main_menu.png)
 
 
 ## 2. Pseudonymisation in Nifi
