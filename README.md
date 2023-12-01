@@ -1,15 +1,18 @@
 # CSO - Hands-on Lab
 
 The primary goal of this repo is to cover the following-->
-1. Using Nifi as a ingestion and transformation tool to:
+
+**1.** Using Nifi as a ingestion and transformation tool to:
     - Ingest data from a local repository into HDFS
     - Pre-process the files while covering different pseudonymization and anonimyzation techniques* 
     
       *_There will be a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)._
 
     - Create separate tables for raw data and processed data
-2. Create policies for different users in Ranger to provide the correct permissions for each of the data resources that are available from the previous step by giving access to users, profiling and masking data
-3.  Using Ranger and different CDP tools such as HUE (sql workbench),HDFS, and Jupyter Notebook; demonstrate how end users (analysts, admins and auditors) have access ONLY to the data that they are allowed to see/use
+
+**2.** Create policies for different users in Ranger to provide the correct permissions for each of the data resources that are available from the previous step by giving access to users, profiling and masking data
+
+**3.** Using Ranger and different CDP tools such as HUE (sql workbench),HDFS, and Jupyter Notebook; demonstrate how end users (analysts, admins and auditors) have access ONLY to the data that they are allowed to see/use
     
 
 All steps will be run by attendees on their own edge to ai instance, a single node secured cluster running CDP
@@ -58,7 +61,7 @@ There will be three different users that will be used through the lab
 ```
 
 
-## 2. Pseudonymisation in Nifi
+## 2. Data Ingestion and Transformation with NiFi
 Access Nifi UI and the canvas
 To anonymize data in NiFi, you can make use of various processors and techniques. Here are some common steps to follow:
 
