@@ -3,7 +3,7 @@
 The primary goal of this repo is to cover the following-->
 1. Using Nifi as a ingestion and transformation tool to:
     - Ingest data from a local repository into HDFS
-    - Pre-process the files while covering different pseudonymization and anonimyzation techniques 
+    - Pre-process the files while covering different pseudonymization and anonimyzation techniques* 
     
       *_We'll have a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)._
 
