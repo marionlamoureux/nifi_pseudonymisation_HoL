@@ -185,7 +185,7 @@ The Nifi template is available under "assets" in this repository if needed.
 
 Upload a Nifi template:  
 in the Nifi Canvas UI, select the "Upload template" button in the left hand side configuration menu.!
-![Upload Template](./images/NiFi_uploadTemplate.png)  
+![6_nifi_upload_template](images/6_nifi_upload_template.png)  
 
 
 
