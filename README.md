@@ -1,47 +1,144 @@
-# Nifi Pseudonymisation - Hands-on Lab
+# CSO Hands-on Lab
 
-The purpose of the lab is to cover various pseudonymisation technics available in CDP private Cloud and Nifi.
-Definitions:  
-_*Pseudonymisation is the process of replacing identifying information with random codes, 
-which can be linked back to the original person with extra information, 
-whereas anonymisation is the irreversible process of rendering personal data non-personal, 
-and not subject to the GDPR_
+The primary goal of this repo is to cover the following-->
 
-Summary:
-- Build a Nifi flow for identifying sensistive information
-- Branch the flow:  
-    - Redacted information are written into Hive table "HR_Redacted"  
-    - Encrypted information are written into Hive table "HR_encrypted" including lookup table for 
-- Using Ranger for profiling and masking
+**1.** Using Nifi as a ingestion and transformation tool to:
+  - Ingest data from a local repository into HDFS
+  - Pre-process the files while covering different pseudonymization and anonimyzation techniques* 
+    
+  _*There will be a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)_
+
+  - Create separate tables for raw data and processed data
+
+**2.** Create policies for different users in Ranger to provide the correct permissions for each of the data resources that are available from the previous step by giving access to users, profiling and masking data
+
+**3.** Using Ranger and different CDP tools such as HUE (sql workbench),HDFS, and Jupyter Notebook; demonstrate how end users (analysts, admins and auditors) have access ONLY to the data that they are allowed to see/use
 
 All steps will be run by attendees on their own edge to ai instance, a single node secured cluster running CDP
 Private Cloud base with Nifi deployed. Because it's a very small instance, the purpose is to test features,
 not to test performance of workloads at scale.
 
-## 1. Access your edge to ai instance
-You can ssh to it if needed using the hostname indicated in the webserver.
+## 1. Access the EDGE2AI instance
+To acess the instance, each user will need to register using the given Web Server and registration code. 
+```
+  Web Server:  http://34.197.112.233 
+  Registration code:*clever_mccarthy
+```
+
+![1_registration](images/1_registration.png)
+
+Once this is completed, register the user and create a password
+
+![2_password](images/2_password.png)
+
+You will be redirected to the main menu
+_*Note: Users must check with their internal security team if the range for the services has to be whitelisted_
+
+![3_main_menu](images/3_main_menu.png)
+
+There will be three different users that will be used through the lab
+
+1. **Admin**
+
+```
+  User: admin
+  Password: Supersecret1
+```
+
+2. **Analyst**
+
+```
+  User: analyst_user
+  Password: Supersecret1
+```
+
+3. **Auditor**
+
+```
+  User: auditor_user
+  Password: Supersecret1
+```
 
 
-## 2. Pseudonymisation in Nifi
-Access Nifi UI and the canvas
+## 2. Data Ingestion and Transformation with NiFi
+To access the NiFi UI go to the EDGE2AI Home url: http://34.197.112.233/  and select NiFi
+
+Login as admin:
+
+![4_nifi_login](images/4_nifi_login.png)
+
+
+You will be redirected to the NiFi Canvas -->
+
+![5_nifi_canvas](images/5_nifi_canvas.png)
+
+
+### 2.1 Ingesting Data using NiFi
+
+Pipelines in NiFi are referred as flows. 
+The first step of the Flow that is going to be created will be ingesting the data from a storage system in this case HDFS.
+
+For the purpose of this lab, there is a pre-step where users will download a sample dataset from this Repository:
+
+```
+  https://github.com/nhernandezdlm/CSO_HoL/tree/main/assets
+```
+The dataset will be uploaded into the local HDFS of each of the clusters using Hue.
+
+To access Hue go to the EDGE2AI Home url: http://34.197.112.233/  and select Hue
+
+Login as Admin:
+
+![7_hue](images/7_hue.png)
+
+You will be redirected to Hue -->
+
+![8_hue_init](images/8_hue_init.png)
+
+Follow these steps:
+
+1. Go to Files
+
+![9_files_hue](images/9_files_hue.png)
+
+2. Create a New directory
+
+![10_hue_directory](images/10_hue_directory.png)
+
+Name it:
+
+```
+  test_data
+```
+
+![11_directory_name](images/11_directory_name.png)
+
+3. Navigate to the directory
+
+4. Upload the file
+
+![12_hue_upload](images/12_hue_upload.png)
+
+![13_hue_upload_2](images/13_hue_upload_2.png)
+
+5. The file is stored in HDFS
+
+![14_hdfs_file](images/14_hdfs_file.png)
+
+
+### 2.2 Anonymize data in NiFi
+
 To anonymize data in NiFi, you can make use of various processors and techniques. Here are some common steps to follow:
 
-
-
-Summary
 1. Identify and select the fields that need to be anonymized.
 2. Use processors like `UpdateAttribute`, `ReplaceText`, or `AttributesToJSON` to manipulate the data.
 3. Apply masking techniques such as randomization, substitution, or encryption to the selected fields.
 4. Use processors like `EncryptContent` or `EvaluateJsonPath` to perform the required masking operations.
 5. Test the anonymized data to ensure that it meets the desired level of privacy and security.
 
-The Nifi template is available under "assets" in this repository if needed.  
 
-Upload a Nifi template:  
-in the Nifi Canvas UI, select the "Upload template" button in the left hand side configuration menu.!
-![Upload Template](./images/NiFi_uploadTemplate.png)  
+### 2.3 Pseudonymize data in NiFi
 
-Pseudonymisation  
 To pseudonymize data in NiFi, you can make use of the built-in Record processors like ConvertRecord and UpdateRecord. These processors allow you 
 to manipulate the data within a record-oriented format and apply transformations to the data fields.
 
@@ -67,10 +164,17 @@ the actual pseudonymization algorithms or techniques need to be implemented with
 If you have additional requirements or complex pseudonymization techniques, 
 you might need to consider implementing a custom processor or leveraging external services for more advanced data anonymization.
 
-Let me know if you require further assistance or if Cloudera has trained me on this specific use case.
+### 2.4 How to share Flows in NiFi
+
+The Nifi template is available under "assets" in this repository if needed.  
+
+Upload a Nifi template:  
+in the Nifi Canvas UI, select the "Upload template" button in the left hand side configuration menu.!
+![Upload Template](./images/NiFi_uploadTemplate.png)  
 
 
-## 3. Data masking in ranger
+
+## 3. Data Masking in Ranger
 
 Ranger enables you to create tag-based services and add access policies to those services.
 
