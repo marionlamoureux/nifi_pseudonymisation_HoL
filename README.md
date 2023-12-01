@@ -90,11 +90,11 @@ To access Hue go to the EDGE2AI Home url: http://34.197.112.233/  and select Hue
 
 Login as Admin:
 
-![6_hue](images/6_hue.png)
+![7_hue](images/7_hue.png)
 
 You will be redirected to Hue -->
 
-![7_hue_init](images/7_hue_init.png)
+![8_hue_init](images/8_hue_init.png)
 
 
 ### 2.2 Anonymize data in NiFi
