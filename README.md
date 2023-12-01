@@ -6,7 +6,7 @@ The primary goal of this repo is to cover the following-->
   - Ingest data from a local repository into HDFS
   - Pre-process the files while covering different pseudonymization and anonimyzation techniques* 
     
-  _*There will be a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)_
+  _*There will be a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation. Pseudonymisation is the process of replacing identifying information with random codes, which can be linked back to the original person with extra information; whereas anonymisation is the irreversible process of rendering personal data non-personal, and not subject to the GDPR_
 
   - Create separate tables for raw data and processed data
 
@@ -189,29 +189,39 @@ in the Nifi Canvas UI, select the "Upload template" button in the left hand side
 
 
 
-## 3. Data Masking in Ranger
+## 3. Data Masking in Ranger and Atlas
 
-Ranger enables you to create tag-based services and add access policies to those services.
+Withing the Cloudera tech stack, Atlas provides open metadata management and governance capabilities for organizations to build a catalog of their data assets, classify and govern these assets. Within Atlas, users can create their own classifications.
+
+For example, resources (HDFS file/directory, Hive database/table/column etc.) containing sensitive data such as social security numbers,credit card numbers, or sensitive health care data can be tagged with any classification tag of the user's choice (usually "PII" or "confidential" or "sensitive") in Atlas, either as the resource enters the Hadoop ecosystem or at a later time. 
+
+On the other side, Ranger enables users to create tag-based services and add access policies to those services.
 
 *Tag-Based Policies Overview*
 An important feature of Ranger tag-based authorization is the separation of resource-classification from access-authorization. 
-For example, resources (HDFS file/directory, Hive database/table/column etc.) containing sensitive data such as social security numbers,
-credit card numbers, or sensitive health care data can be tagged with any classification tag of your choice (usually "PII" or "confidential" or "sensitive") in Atlas, either as the resource enters the Hadoop ecosystem or at a later time. 
-Once a resource is tagged, the authorization for the tag would be automatically enforced,
-thus eliminating the need to create or update policies for the resource.
 
-Using tag-based policies also enables you to control access to resources across multiple CDP components without creating separate services and policies in each component.
+Once a resource is tagged in Atlas, the authorization for the tag would be automatically enforced with Ranger,
+thus eliminating the need to create or update policies for a particular esource.
 
-
-Summary:
-- Access Atlas and assign a "PII" categorization to Hive column "email" from the Hive table "employees"
-- Access Ranger and create a Masking policy to redact any asset tagged PII
-- Query the table from Nifi and have a look at the result
+Using tag-based policies also enables users to control access to resources across multiple CDP components without creating separate services and policies in each component.
 
 
+Steps to follow --> 
+
+### 3.1 Access Atlas and assign a "PII" categorization to Hive column "email" from the Hive table "employees"
+
+To access Atlas go to the EDGE2AI Home url: http://34.197.112.233/  and select Atlas
+
+Login as Admin:
+
+![21_atlas_login](images/21_atlas_login.png)
 
 
-_*Pseudonymisation is the process of replacing identifying information with random codes, 
-which can be linked back to the original person with extra information, 
-whereas anonymisation is the irreversible process of rendering personal data non-personal, 
-and not subject to the GDPR_
+
+
+### 2. Access Ranger and create a Masking policy to redact any asset tagged PII
+### 3. Query the table from Nifi and have a look at the result
+
+
+
+
