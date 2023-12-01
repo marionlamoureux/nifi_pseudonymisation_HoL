@@ -96,6 +96,36 @@ You will be redirected to Hue -->
 
 ![8_hue_init](images/8_hue_init.png)
 
+Follow these steps:
+
+1. Go to Files
+
+![9_files_hue](images/9_files_hue.png)
+
+2. Create a New directory
+
+![10_hue_directory](images/10_hue_directory.png)
+
+Name it:
+
+```
+  test_data
+```
+
+![11_directory_name](images/11_directory_name.png)
+
+3. Navigate to the directory
+
+4. Upload the file
+
+![12_hue_upload](images/12_hue_upload.png)
+
+![13_hue_upload_2](images/13_hue_upload_2.png)
+
+5. The file is stored in HDFS
+
+![14_hdfs_file](images/14_hdfs_file.png)
+
 
 ### 2.2 Anonymize data in NiFi
 
