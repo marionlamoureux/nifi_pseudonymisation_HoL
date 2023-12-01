@@ -164,14 +164,14 @@ _* For the password select Sensitive Value YES_
 ```
 Name --> Kerberos Principal
 
-Value --> <admin>
+Value --> admin
 ```
 
 Click Apply
 
 ![40_save_params](images/40_save_params.png)
 
-12. From the top gret Ribbon of the NiFi UI, select the first icon (processor) and drag it into the canvas
+12. From the top grey Ribbon of the NiFi UI, select the first icon (processor) and drag it into the canvas
 
 ![41_add_processor](images/41_add_processor.png)
 
@@ -204,11 +204,27 @@ _*For the enviroment variables add a # + { and then press ctrl + space --> this 
 
 To anonymize data in NiFi, you can make use of various processors and techniques. Here are some common steps to follow:
 
-1. Identify and select the fields that need to be anonymized.
-2. Use processors like `UpdateAttribute`, `ReplaceText`, or `AttributesToJSON` to manipulate the data.
-3. Apply masking techniques such as randomization, substitution, or encryption to the selected fields.
-4. Use processors like `EncryptContent` or `EvaluateJsonPath` to perform the required masking operations.
-5. Test the anonymized data to ensure that it meets the desired level of privacy and security.
+- Identify and select the fields that need to be anonymized.
+- Use processors like `UpdateAttribute`, `ReplaceText`, or `AttributesToJSON` to manipulate the data.
+- Apply masking techniques such as randomization, substitution, or encryption to the selected fields.
+- Use processors like `EncryptContent` or `EvaluateJsonPath` to perform the required masking operations.
+- Test the anonymized data to ensure that it meets the desired level of privacy and security.
+
+_*For th purpose of this lab we have selected two processors ReplaceText and PutHDFS_
+
+1. Repeat step `12` from the previous section **(2.1)**, filter for the ReplaceText processor, follow the configuration. Make sure to add passwords as they are set as Sensitive Values in the screenshot
+
+![48_replace_text](images/48_replace_text.png)
+![49_replace_text_rel](images/49_replace_text_rel.png)
+
+2. Repeat step `12` from the previous section **(2.1)**, filter for the PutHDFS processor, follow the configuration. mMke sure to add passwords as they are set as Sensitive Values in the screenshot
+
+![50_put_hdfs](images/50_put_hdfs.png)
+![51_put_hdfs_rel](images/51_put_hdfs_rel.png)
+
+3.  Repeat step `16` from the previous section **(2.1)**, connect both processors
+
+![52_add_relationship](images/52_add_relationship.png)
 
 
 ### 2.3 Pseudonymize data in NiFi
