@@ -113,6 +113,30 @@ Name it:
 
 ![14_hdfs_file](images/14_hdfs_file.png)
 
+6. Go back to the NiFi Canvas. Before adding any processor, the parameters must be configured. These are created within the Parameter Contexts. These contexts allow users to bind a set of configurations to any connector pipe at runtime. For that, click on the Hamburger menu on the top right of the canvas and select "Parameter Contexts"
+
+![16_Nifi_New_Parameter_Contexts](images/16_Nifi_New_Parameter_Contexts.png)
+
+7. Click on the + sign on the top right
+
+![17_NiFi_Create_new_parameter_context](images/17_NiFi_Create_new_parameter_context.png)
+
+8. Add the Name `root` and click on Apply
+
+![18_Root_Parameter_context](images/18_Root_Parameter_context.png)
+
+9. Close the window and do right click on any place in the canvas, click on Configure
+
+![19_Set_ParameterContext](images/19_Set_ParameterContext.png)
+
+10. Select root from the dropdown and click on Apply
+
+![20_a_select_root](images/20_a_select_root.png)
+![20_Apply_Parameter_Context](images/20_Apply_Parameter_Context.png)
+
+
+
+
 
 ### 2.2 Anonymize data in NiFi
 
