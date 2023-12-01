@@ -212,7 +212,7 @@ To anonymize data in NiFi, you can make use of various processors and techniques
 
 _*For th purpose of this lab we have selected two processors ReplaceText and PutHDFS_
 
-1. Repeat step `12` from the previous section **(2.1)**, filter for the ReplaceText processor, follow the configuration. Make sure to add passwords as they are set as Sensitive Values in the screenshot
+1. Repeat step `12` from the previous section **(2.1)**, filter for the ReplaceText processor, follow the configuration
 
 ![48_replace_text](images/48_replace_text.png)
 ![49_replace_text_rel](images/49_replace_text_rel.png)
@@ -225,6 +225,55 @@ _*For th purpose of this lab we have selected two processors ReplaceText and Put
 3.  Repeat step `16` from the previous section **(2.1)**, connect both processors
 
 ![52_add_relationship](images/52_add_relationship.png)
+
+4. For the purpose of this lab we will be creating an External Table in Hue. This table is the asset that end users will be accesing. Before that the permissions in Ranger need to be granted in the correct policy for the user admin
+
+1. To access Ranger go to the EDGE2AI Home url: http://34.197.112.233/  and select Ranger
+
+2. Login as Admin:
+
+![27_ranger_login](images/27_ranger_login.png)
+
+3. Go to cm_hdfs
+
+![54_cm_hdfs](images/54_cm_hdfs.png)
+
+4. Select policy 1
+
+![55_select_policy_1](images/55_select_policy_1.png)
+
+5. Update the valuues of the allow condition 
+
+
+![56_update_policies](images/56_update_policies.png)
+
+
+6. Go to Hue and run the following query in the Hive editor-->
+
+![53_write_hue](images/53_write_hue.png)
+
+```
+CREATE DATABASE HR;
+
+CREATE EXTERNAL TABLE HR.employees_Redacted
+(id int,
+name string,
+age int,
+phone string,
+email string,
+dateofbirth string,
+region string,
+salary int)
+
+row format delimited 
+fields terminated by ',' 
+lines terminated by '\n' 
+LOCATION '/user/admin/hive'
+TBLPROPERTIES ("skip.header.line.count"="1");
+
+
+SELECT * FROM HR.employees_Redacted;
+```
 
 
 ### 2.3 Pseudonymize data in NiFi
