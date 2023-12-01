@@ -132,6 +132,9 @@ Name it:
 10. Select root from the dropdown and click on Apply
 
 ![20_a_select_root](images/20_a_select_root.png)
+
+and click on Apply 
+
 ![20_Apply_Parameter_Context](images/20_Apply_Parameter_Context.png)
 
 
