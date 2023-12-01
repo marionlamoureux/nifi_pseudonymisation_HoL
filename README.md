@@ -262,9 +262,9 @@ To access Ranger go to the EDGE2AI Home url: http://34.197.112.233/  and select 
 
 ![32_hive](images/32_hive.png)
 
-_*For this lab, Redact has been selected as the masking option_
-
 ![33_masking_option](images/33_masking_option.png)
+
+_*For this lab, Redact has been selected as the masking option_
 
 ![34_create_policy](images/34_create_policy.png)
 
