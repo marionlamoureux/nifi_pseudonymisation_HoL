@@ -6,7 +6,7 @@ The primary goal of this repo is to cover the following-->
     - Ingest data from a local repository into HDFS
     - Pre-process the files while covering different pseudonymization and anonimyzation techniques* 
     
-      *_There will be a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)._
+  _*There will be a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)_
 
     - Create separate tables for raw data and processed data
 
