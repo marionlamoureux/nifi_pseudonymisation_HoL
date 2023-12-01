@@ -262,12 +262,28 @@ To access Ranger go to the EDGE2AI Home url: http://34.197.112.233/  and select 
 
 ![32_hive](images/32_hive.png)
 
+_*For this lab, Redact has been selected as the masking option_
+
 ![33_masking_option](images/33_masking_option.png)
 
 ![34_create_policy](images/34_create_policy.png)
 
 
-### 3.3 Query the table from Nifi and have a look at the result
+### 3.3 Query the table from Hue and have a look at the result
+
+1. Go back to Hue
+
+2. Run the query 
+
+```
+SELECT * FROM HR.employees;
+```
+
+3. Review the results 
+
+![35_hue_mask_results](images/35_hue_mask_results.png)
+
+
 
 
 
