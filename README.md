@@ -5,7 +5,7 @@ The primary goal of this repo is to cover the following-->
     - Ingest data from a local repository into HDFS
     - Pre-process the files while covering different pseudonymization and anonimyzation techniques 
     
-    *_We'll have a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)._
+      *_We'll have a strong focus on reversible techniques (pseudonymization), by opposition to anonimyzation (not reversible)._
 
     - Create separate tables for raw data and processed data
 2. Create policies for different users in Ranger to provide the correct policies for each of the data resources that are available from the previous step by giving access, profiling and masking
