@@ -7,7 +7,11 @@ A web server should be deployed by default, to help grant access to each of the 
 Test data:
 -HR Employee file available in the demo tenant.
 
-
+Configuration files:
+WinSCP or ssh into each of the nodes and save the relevant configuration files on the node under /tmp
+- core-site.xml
+- hdfs-
+- hive
 
 
 Access and permissions:

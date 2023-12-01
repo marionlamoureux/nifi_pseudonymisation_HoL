@@ -13,7 +13,6 @@ The primary goal of this repo is to cover the following-->
 **2.** Create policies for different users in Ranger to provide the correct permissions for each of the data resources that are available from the previous step by giving access to users, profiling and masking data
 
 **3.** Using Ranger and different CDP tools such as HUE (sql workbench),HDFS, and Jupyter Notebook; demonstrate how end users (analysts, admins and auditors) have access ONLY to the data that they are allowed to see/use
-    
 
 All steps will be run by attendees on their own edge to ai instance, a single node secured cluster running CDP
 Private Cloud base with Nifi deployed. Because it's a very small instance, the purpose is to test features,
