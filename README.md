@@ -305,13 +305,14 @@ you might need to consider implementing a custom processor or leveraging externa
 
 ### 2.4 How to share Flows in NiFi
 
-The Nifi template is available under "assets" in this repository if needed.  
+In NiFi user can create template that contain the flows that are in the canvas. At the same time, users can also import templates. For the purpose of this lab, there is a template un the `assets` directory in this repository
 
-Upload a Nifi template:  
-in the Nifi Canvas UI, select the "Upload template" button in the left hand side configuration menu.!
+To upload a Nifi template:  
+1. In the Nifi Canvas UI, select the "Upload template" button in the left hand side configuration menu 
+
 ![6_nifi_upload_template](images/6_nifi_upload_template.png)  
 
-
+2. There will be warnings in each of the processors as the parameters will need to be configured
 
 ## 3. Data Masking in Ranger and Atlas
 
