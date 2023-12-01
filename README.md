@@ -137,8 +137,61 @@ and click on Apply
 
 ![20_Apply_Parameter_Context](images/20_Apply_Parameter_Context.png)
 
+11. Go back to the Paramenter Context on the Hamburger menu, and click on the pencil on the right side of the root row
+
+![37_param_context](images/37_param_context.png)
+
+12. Click on the + sign on the top right and add the information for the following parameters: 
 
 
+```
+Name --> Hadoop Configuration Resources
+
+Value --> /etc/hadoop/conf.cloudera.hdfs/core-site.xml,/etc/hadoop/conf.cloudera.hdfs/hdfs-site.xml,/etc/hadoop/conf.cloudera.hdfs/ssl-client.xml,/etc/hive/conf.cloudera.hive/hive-site.xml
+```
+
+```
+Name --> Kerberos Password
+
+Value --> <admin-password>
+```
+_* For the password select Sensitive Value YES_
+
+```
+Name --> Kerberos Principal
+
+Value --> <admin>
+```
+
+![38_add_param](images/38_add_param.png)
+
+![39_add_info_param](images/39_add_info_param.png)
+
+Click Apply
+
+![40_save_params](images/40_save_params.png)
+
+12. From the top gret Ribbon of the NiFi UI, select the first icon (processor) and drag it into the canvas
+
+![41_add_processor](images/41_add_processor.png)
+
+13. Type in the textbox `ListHDFS`
+
+![42_processor](images/42_processor.png)
+
+14. Configure the Properties Tab
+
+![43_configure_list_hdfs](images/43_configure_list_hdfs.png)
+
+_*For the enviroment variables add a # + { and then press ctrl + space --> this will show the options that have been configured in the Parameter Contexts_
+
+![43a_tab_for_params](images/43a_tab_for_params.png)
+
+15. Repeat step `12`, filter in the textbox for `FetchHDFS` and configure both the Properties and Relationships tabs
+
+![44_configure_fetch_hdfs](images/44_configure_fetch_hdfs.png)
+
+![45_config_relationship_fetch](images/45_config_relationship_fetch.png)
 
 
 ### 2.2 Anonymize data in NiFi
