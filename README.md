@@ -36,26 +36,12 @@ _*Note: Users must check with their internal security team if the range for the 
 
 ![3_main_menu](images/3_main_menu.png)
 
-There will be three different users that will be used through the lab
+There can be different users that have access to the CDP platform, however for the purposes of this lab we will be using one:
 
 1. **Admin**
 
 ```
   User: admin
-  Password: Supersecret1
-```
-
-2. **Analyst**
-
-```
-  User: analyst_user
-  Password: Supersecret1
-```
-
-3. **Auditor**
-
-```
-  User: auditor_user
   Password: Supersecret1
 ```
 
@@ -114,6 +100,8 @@ Name it:
 ![11_directory_name](images/11_directory_name.png)
 
 3. Navigate to the directory
+
+![15_directory](images/15_directory.png)
 
 4. Upload the file
 
