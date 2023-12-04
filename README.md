@@ -293,7 +293,7 @@ Using an expression from Nifi supported Expression Language, the last name in th
 
 The output is also written into HDFS to be read using Hue, in a different folder:  
 
-![58_pseudo_HDFS](./images/55_pseudo_HDFS.png)
+![58_pseudo_HDFS](./images/58_pseudo_HDFS.png)
 
 The path picked here is:  
 `/user/admin/hive/hashed`
