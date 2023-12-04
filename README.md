@@ -278,30 +278,38 @@ SELECT * FROM HR.employees_Redacted;
 
 ### 2.3 Pseudonymize data in NiFi
 
-To pseudonymize data in NiFi, you can make use of the built-in Record processors like ConvertRecord and UpdateRecord. These processors allow you 
-to manipulate the data within a record-oriented format and apply transformations to the data fields.
+To pseudonymize data in NiFi, there will be several options, including built-in processors, you can pick based on the strategy. For Data encryption, the "Encrypt Content" processor will support a number of very powerful and recognised encryption algorithms out of the box. For the purpose of this lab, we picked a hashing method, for illustration purposes, as hashing is not fully reversible and can be easily cracked.
 
-Here are the steps to pseudonymize data using NiFi:
+Using ![Nifi Expression Language](https://nifi.apache.org/docs/nifi-docs/html/expression-language-guide.html) and a ReplaceText processor, the string is replaced with a hash before being written out into Hive.
 
-1. Use a processor like ExtractText or SplitText to split the incoming data into individual fields, if applicable.
+The same regular expression is indicated to identify the email addresses in the source data.  
+`([a-z]*)\.([a-z]*)@([a-z]*)\.([a-z.]{2,5})`
 
-2. Configure the ConvertRecord processor to specify the desired Record Reader and Record Writer. These can be set to appropriate JSON, Avro, or CSV reader/writer controller services.
+Using an expression from Nifi supported Expression Language, the last name in the email addresses is replace with a hash (Md5).
+`${'$1'}.${'$2':hash('MD5')}@${'$3'}.${'$4'}`
 
-3. Set up a schema for the data to define the fields to be pseudonymized. You can create a JSON schema or use Avro schema depending on the chosen format.
+```
+CREATE DATABASE HR;
 
-4. Configure the ConvertRecord processor to apply conversions to the fields for pseudonymization. You can utilize the built-in Record processors like UpdateRecord or write your custom scripts in a scripting language like Groovy, Jython, or JavaScript.
+CREATE EXTERNAL TABLE HR.employees_Redacted
+(id int,
+name string,
+age int,
+phone string,
+email string,
+dateofbirth string,
+region string,
+salary int)
 
-5. Apply the pseudonymization logic to the desired fields in the UpdateRecord processor or any custom scripting processor. These transformations could include functions to hash, encrypt, or replace the original values with pseudonyms.
+row format delimited 
+fields terminated by ',' 
+lines terminated by '\n' 
+LOCATION '/user/admin/hive'
+TBLPROPERTIES ("skip.header.line.count"="1");
 
-6. Configure the ConvertRecord processor to specify the desired Record Writer to write the pseudonymized records.
 
-7. Connect the ConvertRecord processor to the downstream processors or destination systems to further process or store the pseudonymized data.
-
-It's important to note that while NiFi provides the tools to pseudonymize data, 
-the actual pseudonymization algorithms or techniques need to be implemented within the custom scripting or transformation logic used in the processors.
-
-If you have additional requirements or complex pseudonymization techniques, 
-you might need to consider implementing a custom processor or leveraging external services for more advanced data anonymization.
+SELECT * FROM HR.employees_Redacted;
+```
 
 ### 2.4 How to share Flows in NiFi
 
