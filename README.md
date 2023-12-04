@@ -277,7 +277,6 @@ SELECT * FROM HR.employees_Redacted;
 
 
 ### 2.3 Pseudonymize data in NiFi
-
 To pseudonymize data in NiFi, there will be several options, including built-in processors, you can pick based on the strategy. For Data encryption, the "Encrypt Content" processor will support a number of very powerful and recognised encryption algorithms out of the box. For the purpose of this lab, we picked a hashing method, for illustration purposes, as hashing is not fully reversible and can be easily cracked.
 
 Using ![Nifi Expression Language](https://nifi.apache.org/docs/nifi-docs/html/expression-language-guide.html) and a ReplaceText processor, the string is replaced with a hash before being written out into Hive.
@@ -288,10 +287,22 @@ The same regular expression is indicated to identify the email addresses in the 
 Using an expression from Nifi supported Expression Language, the last name in the email addresses is replace with a hash (Md5).
 `${'$1'}.${'$2':hash('MD5')}@${'$3'}.${'$4'}`
 
-```
-CREATE DATABASE HR;
 
-CREATE EXTERNAL TABLE HR.employees_Redacted
+![Pseudo_Processors](./images/54_pseudo_nifi processor.png)
+
+
+The output is also written into HDFS to be read using Hue, in a different folder:  
+`
+![Pseudo_HDFS](./images/55_pseudo_HDFS.png)
+
+The path picked here is:  
+`/user/admin/hive/hashed`
+
+In Hue, over the same database called "HR", run the below:  
+
+```
+
+CREATE EXTERNAL TABLE HR.employees_hashed
 (id int,
 name string,
 age int,
@@ -304,12 +315,13 @@ salary int)
 row format delimited 
 fields terminated by ',' 
 lines terminated by '\n' 
-LOCATION '/user/admin/hive'
+LOCATION '/user/admin/hive/hashed'
 TBLPROPERTIES ("skip.header.line.count"="1");
 
 
-SELECT * FROM HR.employees_Redacted;
+SELECT * FROM HR.employees_hashed;
 ```
+
 
 ### 2.4 How to share Flows in NiFi
 
